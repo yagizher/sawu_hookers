@@ -321,6 +321,7 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                                 HookerInCar = false
                                 PlayAmbientSpeech1(Hooker, "Hooker_Had_Enough", "Speech_Params_Force_Shouted_Clear")
                                 hookerGoHome()
+                                break
                             end
                         else
                             DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, 'Drive to a safe spot')
