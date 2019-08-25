@@ -124,7 +124,7 @@ end)
 RegisterNUICallback("ChooseTatiana", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
-    CreateHooker("s_f_y_hooker_02") -- Tatiana
+    TriggerEvent("sawu_hookers:ChosenHooker", "s_f_y_hooker_02") -- Tatiana
     exports['mythic_notify']:SendAlert('inform', "Tatiana is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
@@ -132,7 +132,7 @@ end)
 RegisterNUICallback("ChooseBootylicious", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
-    CreateHooker("csb_stripper_02") -- Bootylicious
+    TriggerEvent("sawu_hookers:ChosenHooker", "csb_stripper_02") -- Bootylicious
     exports['mythic_notify']:SendAlert('inform', "Bootylicious is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
@@ -140,7 +140,7 @@ end)
 RegisterNUICallback("ChooseVennesa", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
-    CreateHooker("csb_stripper_01") -- Vennesa
+    TriggerEvent("sawu_hookers:ChosenHooker", "csb_stripper_01") -- Vennesa
     exports['mythic_notify']:SendAlert('inform', "Vennesa is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
