@@ -117,7 +117,7 @@ RegisterNUICallback("ChooseCathrine", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "s_f_y_hooker_01") -- Cathrine
-    exports['mythic_notify']:SendAlert('inform', "Cathrine is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:DoHudText('inform', "Cathrine is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
 
@@ -125,7 +125,7 @@ RegisterNUICallback("ChooseTatiana", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "s_f_y_hooker_02") -- Tatiana
-    exports['mythic_notify']:SendAlert('inform', "Tatiana is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:DoHudText('inform', "Tatiana is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
 
@@ -133,7 +133,7 @@ RegisterNUICallback("ChooseBootylicious", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "csb_stripper_02") -- Bootylicious
-    exports['mythic_notify']:SendAlert('inform', "Bootylicious is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:DoHudText('inform', "Bootylicious is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
 
@@ -141,7 +141,7 @@ RegisterNUICallback("ChooseVennesa", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "csb_stripper_01") -- Vennesa
-    exports['mythic_notify']:SendAlert('inform', "Vennesa is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:DoHudText('inform', "Vennesa is marked on your GPS, go pick her up.")
     OnRouteToHooker = true
 end)
 
@@ -280,7 +280,7 @@ end
 RegisterNetEvent("sawu_hookers:ChosenHooker")
 AddEventHandler("sawu_hookers:ChosenHooker", function(model)
     if HookerSpawned then
-        exports['mythic_notify']:SendAlert('error', "You have allready chosen a hooker!")
+        exports['mythic_notify']:DoHudText('error', "You have allready chosen a hooker!")
     else
         HookerSpawned = true
         CreateHooker(model)
@@ -321,7 +321,6 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                                 HookerInCar = false
                                 PlayAmbientSpeech1(Hooker, "Hooker_Had_Enough", "Speech_Params_Force_Shouted_Clear")
                                 hookerGoHome()
-                                break
                             end
                         else
                             DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, 'Drive to a safe spot')
@@ -334,6 +333,10 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
             end
         end)
     end   
+end)
+RegisterNetEvent("sawu_hookers:gohome")
+AddEventHandler("sawu_hookers:gohome", function()
+    hookerGoHome()
 end)
 -------------------------------------------------------------
 
