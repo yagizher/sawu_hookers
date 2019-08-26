@@ -13,3 +13,5 @@ The UI i used is based on a resource @Xander1988 and @darkzygb made, i cant reme
  
  
  TR : Abdulkadir AKTAŞ
+ 
+ Daha fazla çevirii
