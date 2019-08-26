@@ -30,17 +30,17 @@ AddEventHandler('sawu_hookers:pay', function(boolean)
         if xPlayer.getMoney() >= Config.BlowjobPrice then
             xPlayer.removeMoney(Config.BlowjobPrice)
             TriggerClientEvent('sawu_hookers:startBlowjob', _source)
-            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'inform', text = 'You payed: ' .. Config.BlowjobPrice ..' $' })
+            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'inform', text = 'Bu güzel hizmet için ' .. Config.BlowjobPrice ..' $ para ödedin.' })
         else
-            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'You do not have enough money' })
+            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'Yeterli paraya sahip değilsin!' })
         end  
     else
         if xPlayer.getMoney() >= Config.SexPrice then
             xPlayer.removeMoney(Config.SexPrice)
             TriggerClientEvent('sawu_hookers:startSex', _source)
-            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'inform', text = 'You payed: ' .. Config.SexPrice ..' $' })
+            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'inform', text = 'Bu güzel hizmet için ' .. Config.SexPrice ..' $ para ödedin.' })
         else
-            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'You do not have enough money' })
+            TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'Yeterli paraya sahip değilsin!' })
         end 
     end
 end)
