@@ -66,9 +66,9 @@ Citizen.CreateThread(function ()
         Citizen.Wait(5)
         local coords, letSleep  = GetEntityCoords(PlayerPedId()), true
         for k,v in pairs(Config.Zones) do
-            if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance and k == 'Pimp' then
+            if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance and k == 'Pezevenk' then
                 letSleep = false
-                DrawText3Ds(v.Pos.x, v.Pos.y, v.Pos.z+1.0, "~b~[E]~w~ to order a Hooker")
+                DrawText3Ds(v.Pos.x, v.Pos.y, v.Pos.z+1.0, "~b~[E]~w~ Bana oradan bişiler ayarla")
                 if IsControlJustReleased(0, Keys['E']) then
                     TriggerEvent("sawu_hookers:OpenPimpMenu")
                 end
@@ -117,7 +117,7 @@ RegisterNUICallback("ChooseCathrine", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "s_f_y_hooker_01") -- Cathrine
-    exports['mythic_notify']:SendAlert('inform', "Cathrine is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:SendAlert('inform', "Cathrine adresi GPS üzerinde işaretlendi")
     OnRouteToHooker = true
 end)
 
@@ -125,7 +125,7 @@ RegisterNUICallback("ChooseTatiana", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "s_f_y_hooker_02") -- Tatiana
-    exports['mythic_notify']:SendAlert('inform', "Tatiana is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:SendAlert('inform', "Tatiana adresi GPS üzerinde işaretlendi")
     OnRouteToHooker = true
 end)
 
@@ -133,7 +133,7 @@ RegisterNUICallback("ChooseBootylicious", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "csb_stripper_02") -- Bootylicious
-    exports['mythic_notify']:SendAlert('inform', "Bootylicious is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:SendAlert('inform', "Bootylicious adresi GPS üzerinde işaretlendi")
     OnRouteToHooker = true
 end)
 
@@ -141,7 +141,7 @@ RegisterNUICallback("ChooseVennesa", function (data, callback)
     SetNuiFocus(false, false)
     callback("ok")
     TriggerEvent("sawu_hookers:ChosenHooker", "csb_stripper_01") -- Vennesa
-    exports['mythic_notify']:SendAlert('inform', "Vennesa is marked on your GPS, go pick her up.")
+    exports['mythic_notify']:SendAlert('inform', "Vennesa adresi GPS üzerinde işaretlendi")
     OnRouteToHooker = true
 end)
 
@@ -280,7 +280,7 @@ end
 RegisterNetEvent("sawu_hookers:ChosenHooker")
 AddEventHandler("sawu_hookers:ChosenHooker", function(model)
     if HookerSpawned then
-        exports['mythic_notify']:SendAlert('error', "You have allready chosen a hooker!")
+        exports['mythic_notify']:SendAlert('error', "Zaten bir fahişe seçtin! Git onu al!")
     else
         HookerSpawned = true
         CreateHooker(model)
@@ -294,7 +294,7 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                         local ped = GetPlayerPed(PlayerId())
                         local vehicle = GetVehiclePedIsIn(ped, false)
                         if GetPedInVehicleSeat(vehicle, -1) and IsPedInVehicle(ped, vehicle, true) and IsVehicleSeatFree(vehicle, 0) and not IsVehicleSeatFree(vehicle, -1) then
-                            DrawText3Ds(Config.Hookerspawns[spawn].x,Config.Hookerspawns[spawn].y,Config.Hookerspawns[spawn].z+1.0, '[~b~E~w~] To signal Hooker')
+                            DrawText3Ds(Config.Hookerspawns[spawn].x,Config.Hookerspawns[spawn].y,Config.Hookerspawns[spawn].z+1.0, '[~b~E~w~] Fahişeyi araca çağır.')
                             if IsControlJustPressed(0, Keys["E"]) then
                                 RemoveBlip(HookerBlip)
                                 signalHooker()
@@ -324,7 +324,7 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                                 break
                             end
                         else
-                            DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, 'Drive to a safe spot')
+                            DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, 'Gizli bir yere git!')
                         end
                     end
                 end
