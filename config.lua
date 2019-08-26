@@ -9,7 +9,7 @@ Config.PimpGuy = {
 }
 
 Config.Zones = {
-	["Pimp"] = {
+	["Pezevenk"] = {
 		Pos   = { x= 130.43, y= -1324.84, z= 28.21 },
 	},
 } 
