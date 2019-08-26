@@ -312,7 +312,7 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                         letSleep = false
                         local ped = GetPlayerPed(PlayerId())
                         if IsVehicleStopped(vehicle) then
-                            DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, '[~b~E~w~] To open Services [~r~H~w~] Tell hooker to Leave')
+                            DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, 'Servisleri seçmek için[~b~E~w~], fahişenin ayrılmasını istiyorsan [~r~H~w~] tuşuna bas. ')
                             if IsControlJustPressed(0, Keys["E"]) then
                                 PlayAmbientSpeech1(Hooker, "Hooker_Offer_Service", "Speech_Params_Force_Shouted_Clear")
                                 TriggerEvent("sawu_hookers:OpenHookerMenu")

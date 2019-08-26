@@ -44,7 +44,3 @@ AddEventHandler('sawu_hookers:pay', function(boolean)
         end 
     end
 end)
-
-
-
-
