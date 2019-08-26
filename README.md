@@ -11,3 +11,5 @@ From there you have to drive and pick up the hooker at the location marked on yo
 The UI i used is based on a resource @Xander1988 and @darkzygb made, i cant remember what resource but i have to give them all the credits for it. 
 [Permission from @Xander1988](https://gyazo.com/82d85ab00b0da45578c52f217aa55626)
  
+ 
+ TR : Abdulkadir AKTAŞ
