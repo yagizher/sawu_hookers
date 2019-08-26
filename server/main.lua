@@ -31,16 +31,28 @@ AddEventHandler('sawu_hookers:pay', function(boolean)
             xPlayer.removeMoney(Config.BlowjobPrice)
             TriggerClientEvent('sawu_hookers:startBlowjob', _source)
             TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'inform', text = 'Bu güzel hizmet için ' .. Config.BlowjobPrice ..' $ para ödedin.' })
+            if Config.SocietyNightclub then
+                TriggerEvent('esx_addonaccount:getSharedAccount', 'society_nightclub', function(account)
+                    account.addMoney(Config.BlowjobPrice)
+                end)
+            end
         else
             TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'Yeterli paraya sahip değilsin!' })
+            TriggerClientEvent('sawu_hookers:noMoney', _source)
         end  
     else
         if xPlayer.getMoney() >= Config.SexPrice then
             xPlayer.removeMoney(Config.SexPrice)
             TriggerClientEvent('sawu_hookers:startSex', _source)
             TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'inform', text = 'Bu güzel hizmet için ' .. Config.SexPrice ..' $ para ödedin.' })
+            if Config.SocietyNightclub then
+                TriggerEvent('esx_addonaccount:getSharedAccount', 'society_nightclub', function(account)
+                    account.addMoney(Config.SexPrice)
+                end)
+            end
         else
             TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'Yeterli paraya sahip değilsin!' })
+            TriggerClientEvent('sawu_hookers:noMoney', _source)
         end 
     end
 end)
