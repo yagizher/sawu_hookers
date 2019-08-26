@@ -5,7 +5,7 @@ Config.BlowjobPrice			= 100  	-- Change price for blowjob here
 Config.SexPrice				= 400  	-- Change price for sex here
 
 Config.PimpGuy = {
-    { x= 130.43, y= -1324.84, z= 28.21, name = "Pimp", heading = 304.47, model = "s_m_m_bouncer_01" },
+    { x= 130.43, y= -1324.84, z= 28.21, name = "Pezevenk", heading = 304.47, model = "s_m_m_bouncer_01" },
 }
 
 Config.Zones = {
