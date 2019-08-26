@@ -158,6 +158,21 @@ RegisterNUICallback("ChooseSex", function (data, callback)
     HookerInCar = false
     TriggerServerEvent("sawu_hookers:pay", false)
 end)
+
+RegisterNUICallback("CloseServiceMenu", function (data, callback)
+    SetNuiFocus(false, false)
+    callback("ok")
+    HookerInCar = true
+end)
+-------------------------------------------------------------
+
+ -------------------------------------------------------------
+-- No Money
+-------------------------------------------------------------  
+RegisterNetEvent("sawu_hookers:noMoney")
+AddEventHandler("sawu_hookers:noMoney", function()
+    HookerInCar = true
+end)
 -------------------------------------------------------------
 
 -------------------------------------------------------------
