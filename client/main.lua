@@ -10,7 +10,7 @@
 --                                              --
 --    https://forum.fivem.net/u/stianhje/       --
 --------------------------------------------------
-
+        --TR Abdulkadir AKTAŞ--
 local Keys = {
     ["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57, 
     ["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177, 
@@ -68,7 +68,7 @@ Citizen.CreateThread(function ()
         for k,v in pairs(Config.Zones) do
             if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance and k == 'Pezevenk' then
                 letSleep = false
-                DrawText3Ds(v.Pos.x, v.Pos.y, v.Pos.z+1.0, "~b~[E]~w~ Bana oradan bişiler ayarla")
+                DrawText3Ds(v.Pos.x, v.Pos.y, v.Pos.z+1.0, "~b~[E]~w~ Bana oradan bisiler ayarla")
                 if IsControlJustReleased(0, Keys['E']) then
                     TriggerEvent("sawu_hookers:OpenPimpMenu")
                 end
@@ -157,6 +157,21 @@ RegisterNUICallback("ChooseSex", function (data, callback)
     callback("ok")
     HookerInCar = false
     TriggerServerEvent("sawu_hookers:pay", false)
+end)
+
+RegisterNUICallback("CloseServiceMenu", function (data, callback)
+    SetNuiFocus(false, false)
+    callback("ok")
+    HookerInCar = true
+end)
+-------------------------------------------------------------
+
+ -------------------------------------------------------------
+-- No Money
+-------------------------------------------------------------  
+RegisterNetEvent("sawu_hookers:noMoney")
+AddEventHandler("sawu_hookers:noMoney", function()
+    HookerInCar = true
 end)
 -------------------------------------------------------------
 
@@ -294,7 +309,7 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                         local ped = GetPlayerPed(PlayerId())
                         local vehicle = GetVehiclePedIsIn(ped, false)
                         if GetPedInVehicleSeat(vehicle, -1) and IsPedInVehicle(ped, vehicle, true) and IsVehicleSeatFree(vehicle, 0) and not IsVehicleSeatFree(vehicle, -1) then
-                            DrawText3Ds(Config.Hookerspawns[spawn].x,Config.Hookerspawns[spawn].y,Config.Hookerspawns[spawn].z+1.0, '[~b~E~w~] Fahişeyi araca çağır.')
+                            DrawText3Ds(Config.Hookerspawns[spawn].x,Config.Hookerspawns[spawn].y,Config.Hookerspawns[spawn].z+1.0, '[~b~E~w~] Fahiseyi araca çagır.')
                             if IsControlJustPressed(0, Keys["E"]) then
                                 RemoveBlip(HookerBlip)
                                 signalHooker()
@@ -312,7 +327,7 @@ AddEventHandler("sawu_hookers:ChosenHooker", function(model)
                         letSleep = false
                         local ped = GetPlayerPed(PlayerId())
                         if IsVehicleStopped(vehicle) then
-                            DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, '[~b~E~w~] To open Services [~r~H~w~] Tell hooker to Leave')
+                            DrawText3Ds(Coords.x, Coords.y, Coords.z+1.0, 'Servisleri seçmek için[~b~E~w~], fahisenin ayrılmasını istiyorsan [~r~H~w~] tusuna bas. ')
                             if IsControlJustPressed(0, Keys["E"]) then
                                 PlayAmbientSpeech1(Hooker, "Hooker_Offer_Service", "Speech_Params_Force_Shouted_Clear")
                                 TriggerEvent("sawu_hookers:OpenHookerMenu")
